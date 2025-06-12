@@ -1,0 +1,19 @@
+const mysql = require("mysql2");
+require("dotenv").config();
+
+const connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "", // default in XAMPP
+    database: "shopmart_db", // your database name
+});
+
+connection.connect((err) => {
+    if (err) {
+        console.error("DB connection failed:", err);
+    } else {
+        console.log("✅ Connected to MySQL DB");
+    }
+});
+
+module.exports = connection;
